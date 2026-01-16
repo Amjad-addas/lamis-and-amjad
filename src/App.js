@@ -1,25 +1,49 @@
-import logo from './logo.svg';
-import './App.css';
+import { Route, Routes } from 'react-router-dom';
+import './App.css'
+import hero from './assite/image/hero.jpg'
+import Home from './screens/home/Home';
+import OurDate from './screens/date/Date';
+import { Dates } from './screens/ourdate/Dates';
+import All from './screens/all/All';
+import AddDates from './screens/AddDates';
+import Add from './screens/addDates/Add';
+export default function App() {
 
-function App() {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+    <div className="hero">
+      <div className='header-container'>
+        <h1 className='logo'>Amjad <br/>&<br/> Lamis</h1>
+
+        <ul className='links'>
+          <li>
+          <a href='/'>
+          clock
+          </a>
+        </li>
+        <li>
+          <a href='/our'>
+          Our Date 
+          </a>
+        </li>
+
+        <li>
+          <a href='/add'>
+          Add Date
+          </a>
+        </li>
+       </ul>
+      </div>
+      <img className='hero-image' src={hero} alt='aaa'/>
+      <Routes>
+        <Route path='/' element={<Home/>}/>
+        <Route path='/date' element={<OurDate/>}/>
+        <Route path='/home' element={<Home/>}/>
+        <Route path='/our' element={<Dates/>}/>
+        <Route path='/all' element={<All/>}/>
+        <Route path='/add' element={<AddDates/>}/>
+        <Route path='/dates' element={<Add/>}/>
+
+      </Routes>
     </div>
   );
 }
-
-export default App;
